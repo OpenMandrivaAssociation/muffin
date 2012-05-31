@@ -1,11 +1,11 @@
 %define major 0
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
-%define gittag 08ffc65
+%define gittag 2000e23525
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -51,8 +51,7 @@ Requires:	%{libname} = %{version}
 This package provides Muffin development files.
 
 %prep
-%setup -qn %{name}-%{version}-%{gittag}
-
+%setup -qn %{name}
 
 %build
 %configure2_5x \
