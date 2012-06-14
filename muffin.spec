@@ -53,6 +53,8 @@ This package provides Muffin development files.
 %prep
 %setup -qn %{name}
 
+autoreconf -fi
+
 %build
 %configure2_5x \
    --enable-compile-warnings=no \
