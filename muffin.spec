@@ -5,15 +5,16 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	1.0.3
+Version:	1.1.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
-Source0:	%{name}-%{version}-%{gittag}.tar.xz
+Source0:	%{name}-%{version}.tar.gz
 
 BuildRequires:  intltool
 BuildRequires:  zenity
+BuildRequires:  gsettings-desktop-schemas-devel
 BuildRequires:  pkgconfig(clutter-1.0)
 BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
@@ -52,7 +53,7 @@ Requires:	%{libname} = %{version}
 This package provides Muffin development files.
 
 %prep
-%setup -qn %{name}
+%setup -qn linuxmint-muffin-392f000
 
 autoreconf -fi
 
@@ -65,14 +66,12 @@ autoreconf -fi
 %make
 
 %install
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 
 %makeinstall_std
 find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %find_lang %{name}
 
 %files -f %{name}.lang
 %doc AUTHORS COPYING README
-%{_sysconfdir}/gconf/schemas/muffin.schemas
 %{_bindir}/muffin
 %{_bindir}/muffin-message
 %{_bindir}/muffin-theme-viewer
@@ -85,6 +84,9 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %{_datadir}/applications/muffin.desktop
 %{_datadir}/gnome/wm-properties/muffin-wm.desktop
 %{_datadir}/muffin/
+%{_datadir}/GConf/gsettings/muffin-schemas.convert
+%{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml
+%{_datadir}/gnome-control-center/keybindings/50-muffin-windows.xml
 %{_mandir}/man1/muffin-message.1*
 %{_mandir}/man1/muffin-theme-viewer.1*
 %{_mandir}/man1/muffin-window-demo.1*
@@ -99,4 +101,18 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %{_libdir}/muffin/Meta-3.0.gir
 %{_libdir}/pkgconfig/libmuffin.pc
 %{_libdir}/pkgconfig/muffin-plugins.pc
+
+
+
+%changelog
+* Thu Oct 11 2012 Arkady L. Shane <ashejn@rosalab.ru> 1.1.1-1
+- update to 1.1.1
+
+* Thu Jun 14 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.0.3-1
++ Revision: 805725
+- new snapshot new version 1.0.3
+
+* Fri Mar 16 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.0.2-1
++ Revision: 785079
+- imported package muffin
 
