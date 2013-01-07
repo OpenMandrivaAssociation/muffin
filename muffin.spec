@@ -1,11 +1,10 @@
-%define major 0
+%define major	0
 %define libname %mklibname %{name} %{major}
-%define develname %mklibname %{name} -d
-%define gittag 2000e23525
+%define devname %mklibname %{name} -d
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	1.1.1
+Version:	1.1.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -44,24 +43,23 @@ Group:		System/Libraries
 %description -n %{libname}
 This package contains the Muffin shared libraries.
 
-%package -n %{develname}
+%package -n %{devname}
 Summary:	Muffin development files
 Group:		Development/C
 Requires:	%{libname} = %{version}
 
-%description -n %{develname}
+%description -n %{devname}
 This package provides Muffin development files.
 
 %prep
-%setup -qn linuxmint-muffin-392f000
-
-autoreconf -fi
+%setup -q
 
 %build
+autoreconf -fi
 %configure2_5x \
-   --enable-compile-warnings=no \
-   --disable-static \
-   --disable-scrollkeeper
+	--enable-compile-warnings=no \
+	--disable-static \
+	--disable-scrollkeeper
 
 %make
 
@@ -95,24 +93,10 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %files -n %{libname}
 %{_libdir}/libmuffin.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %{_includedir}/muffin/
 %{_libdir}/libmuffin.so
 %{_libdir}/muffin/Meta-3.0.gir
 %{_libdir}/pkgconfig/libmuffin.pc
 %{_libdir}/pkgconfig/muffin-plugins.pc
-
-
-
-%changelog
-* Thu Oct 11 2012 Arkady L. Shane <ashejn@rosalab.ru> 1.1.1-1
-- update to 1.1.1
-
-* Thu Jun 14 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.0.3-1
-+ Revision: 805725
-- new snapshot new version 1.0.3
-
-* Fri Mar 16 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.0.2-1
-+ Revision: 785079
-- imported package muffin
 
