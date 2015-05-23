@@ -81,7 +81,7 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %dir %{_libdir}/muffin/plugins
 %{_libdir}/muffin/plugins/default.so
 # -- typelib needs to be changed upstream, once this happens split the package
-%{_libdir}/muffin/Meta-Muffin-0.typelib
+%{_libdir}/muffin/Meta-Muffin.0.typelib
 %{_datadir}/applications/muffin.desktop
 %{_datadir}/muffin/
 %{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml
@@ -96,7 +96,7 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %files -n %{devname}
 %{_includedir}/muffin/
 %{_libdir}/libmuffin.so
-%{_libdir}/muffin/Meta-Muffin-0.gir
+%{_libdir}/muffin/Meta-Muffin.0.gir
 %{_libdir}/pkgconfig/libmuffin.pc
 %{_libdir}/pkgconfig/muffin-plugins.pc
 %{_datadir}/gtk-doc/html/muffin
