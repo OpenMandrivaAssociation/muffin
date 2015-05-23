@@ -15,6 +15,7 @@ BuildRequires:  intltool
 BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
 BuildRequires:	gnome-common
+BuildRequires:  gtk-doc
 BuildRequires:  pkgconfig(clutter-1.0)
 BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
