@@ -1,2 +1,4 @@
+removed_sources:
+  muffin-1.1.2.tar.gz: 8eec1f6a00ab0f060b4754e7a65d1991f1d59926
 sources:
-  "muffin-1.1.2.tar.gz": 8eec1f6a00ab0f060b4754e7a65d1991f1d59926
+  muffin-2.6.0.tar.gz: 36418fc453c61bd793ef65cdc6a7031a5b43dcdd

@@ -4,8 +4,8 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	1.1.2
-Release:	2
+Version:	2.6.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
@@ -55,7 +55,7 @@ This package provides Muffin development files.
 %setup -q
 
 %build
-autoreconf -fi
+sh autogen.sh
 %configure2_5x \
 	--enable-compile-warnings=no \
 	--disable-static \
