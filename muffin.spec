@@ -102,5 +102,4 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %{_libdir}/muffin/Meta-Muffin.0.gir
 %{_libdir}/pkgconfig/libmuffin.pc
 %{_libdir}/pkgconfig/muffin-plugins.pc
-%{_datadir}/gtk-doc/html/muffin
 
