@@ -1,10 +1,11 @@
+%define _disable_ld_no_undefined 1
 %define major	0
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	2.6.0
+Version:	2.0.5
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -58,11 +59,12 @@ This package provides Muffin development files.
 %setup -q
 
 %build
+touch config.h.in
 sh autogen.sh
 %configure2_5x \
 	--enable-compile-warnings=no \
 	--disable-static \
-	--disable-scrollkeeper
+	--disable-scrollkeeper LIBS='-lgtk-3 -lgdk-3'
 
 %make
 
@@ -85,6 +87,7 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %{_datadir}/applications/muffin.desktop
 %{_datadir}/muffin/
 %{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml
+%{_datadir}/GConf/gsettings/muffin-schemas.convert
 %{_mandir}/man1/muffin-message.1*
 %{_mandir}/man1/muffin-theme-viewer.1*
 %{_mandir}/man1/muffin-window-demo.1*
