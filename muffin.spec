@@ -63,7 +63,8 @@ NOCONFIGURE=1 sh autogen.sh
 	--enable-compile-warnings=no \
 	--disable-Werror \
 	--disable-static \
-	--disable-scrollkeeper
+	--disable-scrollkeeper \
+	--disable-clutter-doc
 
 %make
 
