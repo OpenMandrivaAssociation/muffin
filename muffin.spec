@@ -103,5 +103,4 @@ find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %{_libdir}/muffin/*.gir
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gtk-doc/html/muffin
-%{_datadir}/gtk-doc/html/clutter
 
