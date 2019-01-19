@@ -2,6 +2,7 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 %define _disable_rebuild_configure 1
+%define _disable_lto 1
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
