@@ -33,6 +33,9 @@ BuildRequires:  pkgconfig(xext)
 BuildRequires:  pkgconfig(xinerama)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(libstartup-notification-1.0)
+BuildRequires:	pkgconfig(xkeyboard-config)
+BuildRequires:	pkgconfig(xkbcommon-x11)
+BuildRequires:	pkgconfig(xkbfile)
 
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
