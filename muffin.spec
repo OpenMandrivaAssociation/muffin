@@ -36,7 +36,7 @@ BuildRequires:  pkgconfig(libstartup-notification-1.0)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	pkgconfig(xkbcommon-x11)
 BuildRequires:	pkgconfig(xkbfile)
-
+BuildRequires:	pkgconfig(xtst)
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
 Muffin is the clutter-based evolution of Metacity, which, as the  author 
