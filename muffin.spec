@@ -19,13 +19,13 @@ BuildRequires:  gsettings-desktop-schemas-devel
 BuildRequires:	gnome-common
 BuildRequires:  gtk-doc
 BuildRequires:  pkgconfig(cinnamon-desktop)
-BuildRequires:  pkgconfig(clutter-1.0)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ice)
+BuildRequires:  pkgconfig(json-glib-1.0)
 BuildRequires:  pkgconfig(libcanberra-gtk)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
@@ -33,6 +33,12 @@ BuildRequires:  pkgconfig(xext)
 BuildRequires:  pkgconfig(xinerama)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(libstartup-notification-1.0)
+BuildRequires:	pkgconfig(xkeyboard-config)
+BuildRequires:	pkgconfig(xkbcommon-x11)
+BuildRequires:	pkgconfig(xkbfile)
+BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(libudev)
+BuildRequires:	pkgconfig(libinput)
 
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
