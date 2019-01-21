@@ -20,6 +20,7 @@ BuildRequires:	gnome-common
 BuildRequires:  gtk-doc
 BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(egl)
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
