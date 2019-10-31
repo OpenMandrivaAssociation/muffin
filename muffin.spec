@@ -6,12 +6,12 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	4.0.6
+Version:	4.2.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
-Source0:	%{name}-%{version}.tar.gz
+Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  intltool
 BuildRequires:  zenity
@@ -68,17 +68,17 @@ This package provides Muffin development files.
 
 %build
 NOCONFIGURE=1 sh autogen.sh
-%configure2_5x \
+%configure \
 	--enable-compile-warnings=no \
 	--disable-Werror \
 	--disable-static \
 	--disable-scrollkeeper \
 	--disable-clutter-doc
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
 %find_lang %{name}
 
