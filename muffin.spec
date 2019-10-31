@@ -18,6 +18,8 @@ BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
 BuildRequires:	gnome-common
 BuildRequires:  gtk-doc
+BuildRequires:	pkgconfig(libdrm)
+BuildRequires:	pkgconfig(cogl-1.0)
 BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(egl)
