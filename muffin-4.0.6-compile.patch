@@ -1,0 +1,13 @@
+diff -up muffin-4.0.6/cogl/configure.ac.omv~ muffin-4.0.6/cogl/configure.ac
+--- muffin-4.0.6/cogl/configure.ac.omv~	2019-11-02 18:13:11.659722471 +0100
++++ muffin-4.0.6/cogl/configure.ac	2019-11-02 18:13:11.656722460 +0100
+@@ -759,7 +759,8 @@ AS_IF([test "x$NEED_EGL" = "xyes" && tes
+           )
+ 
+         COGL_EGL_INCLUDES="#include <EGL/egl.h>
+-#include <EGL/eglext.h>"
++#include <EGL/eglext.h>
++#include <EGL/eglmesaext.h>"
+         AC_SUBST([COGL_EGL_INCLUDES])
+       ])
+ 
