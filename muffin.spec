@@ -25,6 +25,8 @@ BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(egl)
 BuildRequires:	pkgconfig(gbm)
 BuildRequires:  pkgconfig(gl)
+BuildRequires:	pkgconfig(dri)
+BuildRequires:	egl-devel
 BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
