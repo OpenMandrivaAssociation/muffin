@@ -13,6 +13,7 @@ Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
 Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		muffin-4.0.6-compile.patch
+Patch1:		0001-fix-warnings-when-compiling.patch
 BuildRequires:  intltool
 BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
