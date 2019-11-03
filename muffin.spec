@@ -12,7 +12,7 @@ License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
 Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{version}.tar.gz
-
+Patch0:		muffin-4.0.6-compile.patch
 BuildRequires:  intltool
 BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
@@ -68,7 +68,7 @@ Requires:	%{libname} = %{version}
 This package provides Muffin development files.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 NOCONFIGURE=1 sh autogen.sh
@@ -83,7 +83,7 @@ NOCONFIGURE=1 sh autogen.sh
 
 %install
 %make_install
-find %{buildroot}%{_libdir} -type f -name "*.la" -delete -print
+
 %find_lang %{name}
 
 %files -f %{name}.lang
