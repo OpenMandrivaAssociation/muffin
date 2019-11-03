@@ -77,7 +77,12 @@ NOCONFIGURE=1 sh autogen.sh
 	--disable-Werror \
 	--disable-static \
 	--disable-scrollkeeper \
-	--disable-clutter-doc
+	--disable-clutter-doc \
+        --disable-wayland-egl-platform \
+        --disable-wayland-egl-server \
+        --disable-kms-egl-platform \
+        --disable-wayland \
+        --disable-native-backend
 
 %make_build
 
