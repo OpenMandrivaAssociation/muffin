@@ -73,6 +73,8 @@ This package provides Muffin development files.
 %build
 NOCONFIGURE=1 sh autogen.sh
 %configure \
+        --enable-startup-notification=yes \
+        --disable-silent-rules \
 	--enable-compile-warnings=no \
 	--disable-Werror \
 	--disable-static \
