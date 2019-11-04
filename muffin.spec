@@ -42,6 +42,7 @@ BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(libudev)
 BuildRequires:	pkgconfig(libinput)
+BuildRequires:	egl-devel
 
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
