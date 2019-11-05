@@ -46,6 +46,7 @@ BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(libudev)
 BuildRequires:	pkgconfig(libinput)
+BuildRequires:	egl-devel
 
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
@@ -83,11 +84,11 @@ NOCONFIGURE=1 sh autogen.sh
 %configure \
         --enable-startup-notification=yes \
         --disable-silent-rules \
-	--enable-compile-warnings=no \
-	--disable-Werror \
-	--disable-static \
-	--disable-scrollkeeper \
-	--disable-clutter-doc \
+	      --enable-compile-warnings=no \
+	      --disable-Werror \
+	      --disable-static \
+	      --disable-scrollkeeper \
+        --disable-clutter-doc \
         --disable-wayland-egl-platform \
         --disable-wayland-egl-server \
         --disable-kms-egl-platform \
