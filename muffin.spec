@@ -72,6 +72,11 @@ This package provides Muffin development files.
 %autosetup -p1
 
 %build
+# Build with Clang:
+#Invalid GType function: 'clutter_point_get_type'
+#Failed to find symbol 'clutter_point_get_type'
+#clutter-muffin.h:46: Warning: Clutter: symbol='SyncMethod': Unknown namespace for identifier 'SyncMethod'
+# As workaround switch to GCC: https://github.com/linuxmint/muffin/issues/538
 export CC=gcc
 export CXX=g++
 NOCONFIGURE=1 sh autogen.sh
