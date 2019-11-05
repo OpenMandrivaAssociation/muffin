@@ -6,24 +6,28 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	4.0.6
+Version:	4.2.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
-Source0:	%{name}-%{version}.tar.gz
+Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		muffin-4.0.6-compile.patch
-
+Patch1:		0001-fix-warnings-when-compiling.patch
 BuildRequires:  intltool
 BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
 BuildRequires:	gnome-common
 BuildRequires:  gtk-doc
+BuildRequires:	pkgconfig(libdrm)
+BuildRequires:	pkgconfig(cogl-1.0)
 BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(egl)
 BuildRequires:	pkgconfig(gbm)
 BuildRequires:  pkgconfig(gl)
+BuildRequires:	pkgconfig(dri)
+BuildRequires:	egl-devel
 BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
@@ -69,12 +73,21 @@ This package provides Muffin development files.
 %autosetup -p1
 
 %build
+# Build with Clang:
+#Invalid GType function: 'clutter_point_get_type'
+#Failed to find symbol 'clutter_point_get_type'
+#clutter-muffin.h:46: Warning: Clutter: symbol='SyncMethod': Unknown namespace for identifier 'SyncMethod'
+# As workaround switch to GCC: https://github.com/linuxmint/muffin/issues/538
+export CC=gcc
+export CXX=g++
 NOCONFIGURE=1 sh autogen.sh
 %configure \
-	--enable-compile-warnings=no \
-	--disable-Werror \
-	--disable-static \
-	--disable-scrollkeeper \
+        --enable-startup-notification=yes \
+        --disable-silent-rules \
+	      --enable-compile-warnings=no \
+	      --disable-Werror \
+	      --disable-static \
+	      --disable-scrollkeeper \
         --disable-clutter-doc \
         --disable-wayland-egl-platform \
         --disable-wayland-egl-server \
@@ -82,10 +95,11 @@ NOCONFIGURE=1 sh autogen.sh
         --disable-wayland \
         --disable-native-backend
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
+
 %find_lang %{name}
 
 %files -f %{name}.lang
