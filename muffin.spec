@@ -72,6 +72,8 @@ This package provides Muffin development files.
 %autosetup -p1
 
 %build
+export CC=gcc
+export CXX=g++
 NOCONFIGURE=1 sh autogen.sh
 %configure \
         --enable-startup-notification=yes \
