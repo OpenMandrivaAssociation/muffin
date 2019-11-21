@@ -78,8 +78,8 @@ This package provides Muffin development files.
 #Failed to find symbol 'clutter_point_get_type'
 #clutter-muffin.h:46: Warning: Clutter: symbol='SyncMethod': Unknown namespace for identifier 'SyncMethod'
 # As workaround switch to GCC: https://github.com/linuxmint/muffin/issues/538
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 NOCONFIGURE=1 sh autogen.sh
 %configure \
         --enable-startup-notification=yes \
