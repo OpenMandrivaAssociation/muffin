@@ -6,7 +6,7 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	4.6.1
+Version:	4.6.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
