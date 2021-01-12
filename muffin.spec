@@ -61,10 +61,22 @@ Group:		System/Libraries
 %description -n %{libname}
 This package contains the Muffin shared libraries.
 
+%package -n %{girname}
+Summary:        Muffin Introspection bindings
+Group:          System/Libraries
+Conflicts:      %{name} < 4.4.1-2
+
+%description -n %{girname}
+Cinnamon Desktop default window manager.
+Muffin uses GTK+ and Clutter to do everything.
+
+This package provides the GObject Introspection bindings for muffin.
+
 %package -n %{devname}
 Summary:	Muffin development files
 Group:		Development/C
 Requires:	%{libname} = %{version}
+Requires:	%{girname} = %{version}-%{release}
 
 %description -n %{devname}
 This package provides Muffin development files.
@@ -108,12 +120,10 @@ NOCONFIGURE=1 sh autogen.sh
 %{_bindir}/muffin-message
 %{_bindir}/muffin-theme-viewer
 %{_bindir}/muffin-window-demo
-%dir %{_libdir}/muffin
-%dir %{_libdir}/muffin/plugins
-%{_libdir}/muffin/plugins/default.so
-# -- typelib needs to be changed upstream, once this happens split the package
-%{_libdir}/muffin/*.typelib
-%{_libdir}/muffin/*.so
+#dir %{_libdir}/muffin
+#dir %{_libdir}/muffin/plugins
+#{_libdir}/muffin/plugins/default.so
+#{_libdir}/muffin/*.so
 %{_datadir}/applications/muffin.desktop
 %{_datadir}/muffin/
 %{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml
@@ -124,7 +134,16 @@ NOCONFIGURE=1 sh autogen.sh
 %{_libexecdir}/muffin-restart-helper
 
 %files -n %{libname}
+%dir %{_libdir}/muffin/plugins/
+%{_libdir}/muffin/plugins/default.so
 %{_libdir}/libmuffin.so.%{major}*
+%{_libdir}/{,muffin/}libmuffin-clutter-%{major}.so
+%{_libdir}/{,muffin/}libmuffin-cogl-%{major}.so
+%{_libdir}/{,muffin/}libmuffin-cogl-pango-%{major}.so
+%{_libdir}/{,muffin/}libmuffin-cogl-path-%{major}.so
+
+%files -n %{girname}
+%{_libdir}/muffin/*{-,.}%{girmajor}.typelib
 
 %files -n %{devname}
 %{_includedir}/muffin/
@@ -132,4 +151,3 @@ NOCONFIGURE=1 sh autogen.sh
 %{_libdir}/muffin/*.gir
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gtk-doc/html/muffin
-
