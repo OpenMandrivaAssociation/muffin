@@ -1,6 +1,8 @@
 %define major	0
+%define girmajor 0
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
+%define girname %mklibname %{name}-gir %{girmajor}
 %define _disable_rebuild_configure 1
 %define _disable_lto 1
 
