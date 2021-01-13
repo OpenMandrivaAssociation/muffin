@@ -9,7 +9,7 @@
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
 Version:	4.8.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
@@ -50,6 +50,9 @@ BuildRequires:	pkgconfig(libudev)
 BuildRequires:	pkgconfig(libinput)
 BuildRequires:	egl-devel
 
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
+
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
 Muffin is the clutter-based evolution of Metacity, which, as the  author 
@@ -59,6 +62,7 @@ are like Marshmallow Froot Loops; Metacity is like Cheerios."
 %package -n %{libname}
 Summary:	Muffin shared libraries
 Group:		System/Libraries
+Requires:	%{girname} = %{version}-%{release}
 
 %description -n %{libname}
 This package contains the Muffin shared libraries.
