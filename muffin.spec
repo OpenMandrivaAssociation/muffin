@@ -48,16 +48,32 @@ BuildRequires:  pkgconfig(xext)
 BuildRequires:  pkgconfig(xinerama)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(libstartup-notification-1.0)
+BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	pkgconfig(xkbcommon-x11)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(libudev)
-BuildRequires:	pkgconfig(libinput)
 BuildRequires:	egl-devel
+BuildRequires:	pkgconfig(gbm)
+# For Wayland
+BuildRequires:	pkgconfig(libinput)
+BuildRequires:	egl-wayland
+BuildRequires:	pkgconfig(wayland-client)
+BuildRequires:	pkgconfig(wayland-cursor)
+BuildRequires:	pkgconfig(wayland-egl)
+BuildRequires:	pkgconfig(wayland-egl-backend)
+BuildRequires:	pkgconfig(wayland-scanner)
+BuildRequires:	pkgconfig(wayland-server)
+BuildRequires:	pkgconfig(wayland-protocols)
+BuildRequires:	pkgconfig(xwayland)
 
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
+
+Requires:	xwayland
+Requires: dbus-x11
+Requires: zenity-gtk
 
 %description
 Muffin is a small window manager, using GTK+ and Clutter to do everything.
@@ -132,7 +148,7 @@ This package provides Muffin development files.
 
 %files -n %{libname}
 %dir %{_libdir}/muffin/plugins/
-%{_libdir}/muffin/plugins/default.so
+#{_libdir}/muffin/plugins/default.so
 %{_libdir}/libmuffin.so.%{major}*
 %{_libdir}/{,muffin/}libmuffin-clutter-%{major}.so
 %{_libdir}/{,muffin/}libmuffin-cogl-%{major}.so
