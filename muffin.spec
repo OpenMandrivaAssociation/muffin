@@ -143,17 +143,19 @@ This package provides Muffin development files.
 #{_libdir}/muffin/*.so
 %{_datadir}/applications/muffin.desktop
 %{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.wayland.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.x11.gschema.xml
 %{_mandir}/man1/muffin.1*
 %{_libexecdir}/muffin-restart-helper
 
 %files -n %{libname}
 %dir %{_libdir}/muffin/plugins/
-#{_libdir}/muffin/plugins/default.so
+%{_libdir}/muffin/plugins/libdefault.so
 %{_libdir}/libmuffin.so.%{major}*
-%{_libdir}/{,muffin/}libmuffin-clutter-%{major}.so
-%{_libdir}/{,muffin/}libmuffin-cogl-%{major}.so
-%{_libdir}/{,muffin/}libmuffin-cogl-pango-%{major}.so
-%{_libdir}/{,muffin/}libmuffin-cogl-path-%{major}.so
+%{_libdir}/{,muffin/}libmuffin-clutter-%{major}.so*
+%{_libdir}/{,muffin/}libmuffin-cogl-%{major}.so*
+%{_libdir}/{,muffin/}libmuffin-cogl-pango-%{major}.so*
+%{_libdir}/{,muffin/}libmuffin-cogl-path-%{major}.so*
 
 %files -n %{girname}
 %{_libdir}/muffin/*{-,.}%{girmajor}.typelib
