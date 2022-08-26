@@ -121,21 +121,12 @@ This package provides Muffin development files.
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc AUTHORS COPYING README
+%doc COPYING README.md
 %{_bindir}/muffin
-%{_bindir}/muffin-message
-%{_bindir}/muffin-theme-viewer
-%{_bindir}/muffin-window-demo
-#dir %{_libdir}/muffin
-#dir %{_libdir}/muffin/plugins
 #{_libdir}/muffin/plugins/default.so
 #{_libdir}/muffin/*.so
 %{_datadir}/applications/muffin.desktop
-%{_datadir}/muffin/
 %{_datadir}/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml
-%{_mandir}/man1/muffin-message.1*
-%{_mandir}/man1/muffin-theme-viewer.1*
-%{_mandir}/man1/muffin-window-demo.1*
 %{_mandir}/man1/muffin.1*
 %{_libexecdir}/muffin-restart-helper
 
