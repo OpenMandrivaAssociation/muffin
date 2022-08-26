@@ -8,8 +8,8 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	5.2.0
-Release:	2
+Version:	5.4.6
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
