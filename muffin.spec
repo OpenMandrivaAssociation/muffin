@@ -16,6 +16,7 @@ Url:		https://github.com/linuxmint/Cinnamon/tags
 Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{version}.tar.gz
 #Patch0:		muffin-4.0.6-compile.patch
 
+BuildRequires:	meson
 BuildRequires:  intltool
 BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
@@ -32,6 +33,7 @@ BuildRequires:	pkgconfig(dri)
 BuildRequires:	egl-devel
 #BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(graphene-gobject-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(json-glib-1.0)
@@ -98,25 +100,19 @@ This package provides Muffin development files.
 # As workaround switch to GCC: https://github.com/linuxmint/muffin/issues/538
 #export CC=gcc
 #export CXX=g++
-NOCONFIGURE=1 sh autogen.sh
-%configure \
-        --enable-startup-notification=yes \
-        --disable-silent-rules \
-	      --enable-compile-warnings=no \
-	      --disable-Werror \
-	      --disable-static \
-	      --disable-scrollkeeper \
-        --disable-clutter-doc \
-        --disable-wayland-egl-platform \
-        --disable-wayland-egl-server \
-        --disable-kms-egl-platform \
-        --disable-wayland \
-        --disable-native-backend
 
-%make_build
+%meson	\
+%ifarch %{arm}
+	-Ddefault_driver=gles2 \
+%else
+	-Ddefault_driver=gl \
+%endif
+	-Dprofiler=false
+
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %find_lang %{name}
 
