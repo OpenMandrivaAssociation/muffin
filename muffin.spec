@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(gbm)
 BuildRequires:  pkgconfig(gl)
 BuildRequires:	pkgconfig(dri)
 BuildRequires:	egl-devel
+BuildRequires:	pkgconfig(gudev-1.0)
 #BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(graphene-gobject-1.0)
