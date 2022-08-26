@@ -163,4 +163,3 @@ This package provides Muffin development files.
 %{_libdir}/*.so
 %{_libdir}/muffin/*.gir
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/gtk-doc/html/muffin
