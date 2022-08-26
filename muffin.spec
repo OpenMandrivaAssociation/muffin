@@ -5,6 +5,7 @@
 %define girname %mklibname %{name}-gir %{girmajor}
 %define _disable_rebuild_configure 1
 %define _disable_lto 1
+%define _disable_ld_no_undefined 1
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
