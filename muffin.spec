@@ -9,13 +9,17 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	5.6.3
+Version:	5.8.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
 Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{version}.tar.gz
 #Patch0:		muffin-4.0.6-compile.patch
+
+# Fedora patches
+Patch0:        zenity_fix.patch
+Patch1:        libinput.patch
 
 BuildRequires:	meson
 BuildRequires:  intltool
