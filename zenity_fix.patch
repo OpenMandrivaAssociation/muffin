@@ -1,0 +1,21 @@
+diff -uNrp a/src/core/util.c b/src/core/util.c
+--- a/src/core/util.c	2023-03-16 13:59:31.000000000 +0000
++++ b/src/core/util.c	2023-05-06 16:08:21.162593775 +0100
+@@ -634,8 +634,6 @@ meta_show_dialog (const char *type,
+       append_argument (args, display);
+     }
+ 
+-  append_argument (args, "--class");
+-  append_argument (args, "mutter-dialog");
+   append_argument (args, "--title");
+   append_argument (args, "");
+   append_argument (args, "--text");
+@@ -661,7 +659,7 @@ meta_show_dialog (const char *type,
+ 
+   if (icon_name)
+     {
+-      append_argument (args, "--icon-name");
++      append_argument (args, "--icon");
+       append_argument (args, icon_name);
+     }
+ 
