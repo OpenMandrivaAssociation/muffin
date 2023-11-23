@@ -9,7 +9,7 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	5.8.1
+Version:	6.0.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -21,6 +21,7 @@ Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{versio
 Patch0:        zenity_fix.patch
 Patch1:        libinput.patch
 
+BuildRequires:  cvt
 BuildRequires:	meson
 BuildRequires:  intltool
 BuildRequires:  zenity
@@ -43,6 +44,8 @@ BuildRequires:	pkgconfig(graphene-gobject-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(json-glib-1.0)
+BuildRequires: pkgconfig(libdrm)            
+BuildRequires: pkgconfig(libinput)
 BuildRequires:  pkgconfig(libcanberra-gtk)
 BuildRequires:	pkgconfig(libpipewire-0.3)
 BuildRequires:	pkgconfig(libwacom)
@@ -60,6 +63,27 @@ BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(libudev)
 BuildRequires:	egl-devel
 BuildRequires:	pkgconfig(gbm)
+BuildRequires: pkgconfig(cinnamon-desktop) >= 6.0.0            
+BuildRequires: pkgconfig(xcomposite)            
+BuildRequires: pkgconfig(xcursor)            
+BuildRequires: pkgconfig(xdamage)            
+BuildRequires: pkgconfig(xext)            
+BuildRequires: pkgconfig(xfixes)            
+BuildRequires: pkgconfig(xi)            
+BuildRequires: pkgconfig(xtst)            
+BuildRequires: pkgconfig(xkbfile)            
+BuildRequires: pkgconfig(xkeyboard-config)            
+BuildRequires: pkgconfig(xkbcommon)            
+BuildRequires: pkgconfig(xkbcommon-x11)            
+BuildRequires: pkgconfig(xrender)            
+BuildRequires: pkgconfig(x11-xcb)            
+BuildRequires: pkgconfig(xrandr)            
+BuildRequires: pkgconfig(xcb-randr)            
+BuildRequires: pkgconfig(xcb-res)            
+BuildRequires: pkgconfig(xinerama)            
+BuildRequires: pkgconfig(xau)            
+BuildRequires: pkgconfig(ice)            
+BuildRequires: pkgconfig(atk)
 # For Wayland
 BuildRequires:	pkgconfig(libinput)
 BuildRequires:	egl-wayland
@@ -70,6 +94,7 @@ BuildRequires:	pkgconfig(wayland-egl-backend)
 BuildRequires:	pkgconfig(wayland-scanner)
 BuildRequires:	pkgconfig(wayland-server)
 BuildRequires:	pkgconfig(wayland-protocols)
+BuildRequires:  pkgconfig(wayland-eglstream)
 BuildRequires:	pkgconfig(xwayland)
 
 Requires:	%{libname} = %{version}-%{release}
@@ -131,7 +156,9 @@ This package provides Muffin development files.
 %else
 	-Ddefault_driver=gl \
 %endif
-	-Dprofiler=false
+	-Dprofiler=false \
+ 	-Degl_device=true\
+	-Dwayland_eglstream=true
 
 %meson_build
 
