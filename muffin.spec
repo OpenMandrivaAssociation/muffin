@@ -18,7 +18,6 @@ Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{versio
 #Patch0:		muffin-4.0.6-compile.patch
 
 # Fedora patches
-Patch0:        zenity_fix.patch
 Patch1:        libinput.patch
 
 BuildRequires:  cvt
