@@ -9,7 +9,7 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	6.0.1
+Version:	6.2.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -43,8 +43,8 @@ BuildRequires:	pkgconfig(graphene-gobject-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(json-glib-1.0)
-BuildRequires: pkgconfig(libdrm)            
-BuildRequires: pkgconfig(libinput)
+BuildRequires:	pkgconfig(libdrm)            
+BuildRequires:	pkgconfig(libinput)
 BuildRequires:  pkgconfig(libcanberra-gtk)
 BuildRequires:	pkgconfig(libpipewire-0.3)
 BuildRequires:	pkgconfig(libwacom)
