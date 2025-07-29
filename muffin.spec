@@ -10,7 +10,7 @@
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
 Version:	6.4.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
@@ -22,6 +22,7 @@ Patch1:        libinput.patch
 
 BuildRequires:  cvt
 BuildRequires:	meson
+BuildRequires:	mold
 BuildRequires:  intltool
 BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
@@ -141,6 +142,9 @@ This package provides Muffin development files.
 %autosetup -p1
 
 %build
+%global optflags %{optflags} -fuse-ld=mold
+export CC=gcc
+export CXX=g++
 # Build with Clang:
 #Invalid GType function: 'clutter_point_get_type'
 #Failed to find symbol 'clutter_point_get_type'
