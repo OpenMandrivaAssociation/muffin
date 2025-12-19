@@ -9,8 +9,8 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	6.4.1
-Release:	2
+Version:	6.6.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
@@ -18,7 +18,17 @@ Source0:	https://github.com/linuxmint/muffin/archive/%{version}/%{name}-%{versio
 #Patch0:		muffin-4.0.6-compile.patch
 
 # Fedora patches
-Patch1:        libinput.patch
+# Patch1:        libinput.patch
+
+BuildSystem:    meson
+%ifarch %{arm}
+BuildOption:    -Dgles2=true
+%else
+BuildOption:    -Dopengl=true
+%endif
+BuildOption:    -Dprofiler=false
+BuildOption:    -Degl_device=true
+BuildOption:    -Dwayland_eglstream=true
 
 BuildRequires:  cvt
 BuildRequires:	meson
@@ -28,9 +38,9 @@ BuildRequires:  zenity
 BuildRequires:  gsettings-desktop-schemas-devel
 BuildRequires:	gnome-common
 BuildRequires:  gtk-doc
+BuildRequires:  gettext
 BuildRequires:	pkgconfig(libdrm)
 BuildRequires:	pkgconfig(cogl-1.0)
-BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(egl)
 BuildRequires:	pkgconfig(gbm)
@@ -38,7 +48,6 @@ BuildRequires:  pkgconfig(gl)
 BuildRequires:	pkgconfig(dri)
 BuildRequires:	egl-devel
 BuildRequires:	pkgconfig(gudev-1.0)
-#BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(graphene-gobject-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
@@ -138,37 +147,14 @@ Requires:	%{girname} = %{version}-%{release}
 %description -n %{devname}
 This package provides Muffin development files.
 
-%prep
-%autosetup -p1
 
-%build
-%global optflags %{optflags} -fuse-ld=mold
+%conf -p
 export CC=gcc
 export CXX=g++
-# Build with Clang:
-#Invalid GType function: 'clutter_point_get_type'
-#Failed to find symbol 'clutter_point_get_type'
-#clutter-muffin.h:46: Warning: Clutter: symbol='SyncMethod': Unknown namespace for identifier 'SyncMethod'
-# As workaround switch to GCC: https://github.com/linuxmint/muffin/issues/538
-#export CC=gcc
-#export CXX=g++
 
-%meson	\
-%ifarch %{arm}
-	-Ddefault_driver=gles2 \
-%else
-	-Ddefault_driver=gl \
-%endif
-	-Dprofiler=false \
- 	-Degl_device=true\
-	-Dwayland_eglstream=true
-
-%meson_build
-
-%install
-%meson_install
-
+%install -a 
 %find_lang %{name}
+
 
 %files -f %{name}.lang
 %doc COPYING README.md
