@@ -9,8 +9,8 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	6.6.3
-Release:	2
+Version:	6.8.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://github.com/linuxmint/Cinnamon/tags
@@ -159,6 +159,8 @@ export CXX=g++
 %files -f %{name}.lang
 %doc COPYING README.md
 %{_bindir}/muffin
+%{_bindir}/cinnamon-list-windows
+/usr/lib/udev/rules.d/61-muffin.rules
 #{_libdir}/muffin/plugins/default.so
 #{_libdir}/muffin/*.so
 %{_datadir}/applications/muffin.desktop
