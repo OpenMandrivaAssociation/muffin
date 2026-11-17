@@ -9,7 +9,7 @@
 
 Summary:	A small window manager for Cinnamon Desktop
 Name:		muffin
-Version:	6.8.1
+Version:	6.8.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
